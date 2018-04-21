@@ -14,7 +14,7 @@
     </RootPath>
     <RootNamespace>ProductManagementDb</RootNamespace>
     <AssemblyName>ProductManagementDb</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -23,6 +23,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,5 +59,33 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Sequences\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\audit_log.sql" />
+    <Build Include="dbo\Tables\error_log.sql" />
+    <Build Include="dbo\Tables\product.sql" />
+    <Build Include="dbo\Tables\product_type.sql" />
+    <Build Include="Security\businessuser.sql" />
+    <Build Include="Security\businessuser_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\usp_LogError.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_all.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_del.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_get.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_type_all.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_type_del.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_type_get.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_type_get_cat.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_type_ups.sql" />
+    <Build Include="dbo\Stored Procedures\usp_product_ups.sql" />
+    <Build Include="dbo\Sequences\audit_log_key_seq.sql" />
+    <Build Include="dbo\Sequences\error_log_key_seq.sql" />
+    <Build Include="dbo\Sequences\product_key_seq.sql" />
+    <Build Include="dbo\Sequences\product_type_key_seq.sql" />
   </ItemGroup>
 </Project>
